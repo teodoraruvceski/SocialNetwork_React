@@ -22,10 +22,10 @@ function App() {
     setTitle('');
   }
   return (
-    <div>
-      <input value={title} onChange={(e)=>{setTitle(e.target.value);}}></input><br/>
-      <input value={content} onChange={(e)=>{setContent(e.target.value);}}></input><br/>
-      <button onClick={Post}>Post</button>
+    <div className="App">
+      <input className='inputs' value={title} onChange={(e)=>{setTitle(e.target.value);}}></input><br/>
+      <input className='inputs' value={content} onChange={(e)=>{setContent(e.target.value);}}></input><br/>
+      <button className="post" onClick={Post}>Post</button>
     </div>
   
      
