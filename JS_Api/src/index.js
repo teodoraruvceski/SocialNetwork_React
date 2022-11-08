@@ -28,8 +28,13 @@ app.get('/hi',(req,res)=>{
     
 });
 app.post('/sendPost',(req,res)=>{
-    console.log(req.body);
-    AddPost(req.body.title,req.body.content,res);
+    let data=JSON.parse(req.body.data);
+    console.log('body:',data.title,',',data.content);
+    if(data.title!==null && data.content!==null)
+    {
+        AddPost(data.title,data.content,res);
+        console.log('Saved to DB.');
+    }
     
 })
 
@@ -40,7 +45,7 @@ async function FetchPosts(res){
     const {data} =await supabase
     .from('posts')
     .select()
-    console.log(data);
+    //console.log(data);
     res.send(data); 
 }
 async function AddPost(title,content,res)
